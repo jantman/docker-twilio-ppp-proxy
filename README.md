@@ -15,6 +15,8 @@ Essentially, a whole lot of ugly complexity and engineering to get $3/month out-
 
 ## Setup
 
+This has been tested with a [Huawei E397u-53](https://www.amazon.com/gp/product/B01M0JY15V/) USB 4G modem.
+
 Upon first plugging in your modem, run ``lsusb | grep Huawei``. If you see ``ID 12d1:1505 Huawei Technologies Co., Ltd. E398 LTE/UMTS/GSM Modem/Networkcard``, the USB modem is in mass storage mode. Run ``usb_modeswitch -v 12d1 -p 1505 -J`` to fix that; ``lsusb | grep Huawei`` should now report ``12d1:1506 Huawei Technologies Co., Ltd. Modem/Networkcard``.
 
 ## Usage
