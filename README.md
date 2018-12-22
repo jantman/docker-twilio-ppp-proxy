@@ -28,6 +28,11 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
+## Testing
+
+1. ``curl http://httpbin.org/ip`` should show your real WAN IP
+2. ``curl https://api.ipify.org/?format=json`` should show the same real WAN IP
+
 ## ToDo
 
 * Figure out if we can specify certain needed capabilities instead of ``--privileged``.
