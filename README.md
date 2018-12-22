@@ -21,6 +21,10 @@ Upon first plugging in your modem, run ``lsusb | grep Huawei``. If you see ``ID 
 
 ## Usage
 
+https://hub.docker.com/r/jantman/twilio-ppp-proxy
+
+Docker hub uploads are currently manual. Each uploaded image is tagged with the short git commit hash that it was built from, and the newest image is also tagged latest.
+
 ```
 docker run -d \
     --name twilio-proxy \
