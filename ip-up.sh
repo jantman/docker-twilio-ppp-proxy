@@ -15,7 +15,9 @@ PPP_REMOTE="$5"
 echo "ppp ip-up script called for ${PPP_IFACE} (DNS1=${DNS1} DNS2=${DNS2} ip-up.sh $1 $2 $3 $4 $5)"
 
 echo "removing current nameserver from /etc/resolv.conf"
-sed -i '/^nameserver/ d' /etc/resolv.conf
+# workaround for Docker making /etc/resolv.conf "special"...
+cp /etc/resolv.conf /etc/resolv.conf.orig
+grep -v '^nameserver' /etc/resolv.conf.orig > /etc/resolv.conf
 
 echo "adding $DNS1 and $DNS2 to /etc/resolv.conf"
 echo -e "nameserver $DNS1\nnameserver $DNS2" >> /etc/resolv.conf
