@@ -9,4 +9,4 @@ docker build \
     -t jantman/twilio-ppp-proxy:${gitver} \
     .
 
-echo "Built image: jantman/twilio-ppp-proxy:${gitver}"
+docker tag jantman/twilio-ppp-proxy:${gitver} jantman/twilio-ppp-proxy:latest
