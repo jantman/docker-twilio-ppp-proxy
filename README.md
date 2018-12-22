@@ -38,6 +38,7 @@ Test that it's working:
 
 ## ToDo
 
+* Try to make this a bit smaller and more efficient. Right now, this image is just using a giant hammer to get things working as quickly as possible.
 * Figure out if we can specify certain needed capabilities instead of ``--privileged``.
 * Ensure that the container exits if the connection breaks/fails.
 * Automatically find the modem if ``MODEM_DEV`` isn't specified?
