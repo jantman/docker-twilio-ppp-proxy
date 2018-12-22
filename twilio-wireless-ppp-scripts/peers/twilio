@@ -27,3 +27,6 @@ persist
 
 # Do not require the peer to authenticate itself. This option is privileged.
 noauth
+
+# Don't detatch from the terminal
+nodetach
