@@ -16,6 +16,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN apt-get update && apt-get install -y \
     curl \
     ppp \
+    rsyslog \
     tinyproxy \
     unzip \
     usb-modeswitch \
