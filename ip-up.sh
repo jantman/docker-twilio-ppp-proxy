@@ -26,4 +26,4 @@ echo "Setting tinyproxy bind address..." >> /dev/tty/0
 sed -i "s/#Bind 192.168.0.1/Bind $PPP_LOCAL/" /etc/tinyproxy/tinyproxy.conf
 
 echo "Running tinyproxy..." >> /dev/tty/0
-/usr/sbin/tinyproxy -d
+/etc/init.d/tinyproxy start
