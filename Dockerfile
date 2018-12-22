@@ -30,6 +30,7 @@ COPY entrypoint.sh /entrypoint.sh
 COPY ip-up.sh /etc/ppp/ip-up.d/9999proxy
 COPY ip-down.sh /etc/ppp/ip-down.d/9999proxy
 COPY tinyproxy.conf /etc/tinyproxy/tinyproxy.conf
+COPY rsyslog.conf /etc/rsyslog.conf
 
 RUN chmod +x \
     /tini \
