@@ -10,3 +10,6 @@ echo "Starting rsyslog..."
 
 echo "Executing 'pon twilio'..."
 pon twilio
+
+echo "Executing: tail -f /var/log/messages"
+tail -f /var/log/messages
