@@ -28,10 +28,13 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
-## Testing
+Test that it's working:
 
-1. ``curl http://httpbin.org/ip`` should show your real WAN IP
-2. ``curl https://api.ipify.org/?format=json`` should show the same real WAN IP
+1. Point a browser to https://www.ipify.org/ and find your current WAN IP.
+2. ``curl http://httpbin.org/ip`` should show your real/current WAN IP
+3. ``curl https://api.ipify.org/?format=json`` should show the same real/current WAN IP
+4. ``http_proxy=http://127.0.0.1:8888/ https_proxy=http://127.0.0.1:8888/ curl -L https://api.ipify.org/?format=json`` should show a different IP, the cellular gateway (not necessarily your PPP client IP)
+5. ``http_proxy=http://127.0.0.1:8888/ https_proxy=http://127.0.0.1:8888/ curl http://httpbin.org/ip`` should show a different IP, the cellular gateway (not necessarily your PPP client IP)
 
 ## ToDo
 
