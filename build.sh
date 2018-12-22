@@ -10,3 +10,4 @@ docker build \
     .
 
 docker tag jantman/twilio-ppp-proxy:${gitver} jantman/twilio-ppp-proxy:latest
+echo "Tagged jantman/twilio-ppp-proxy:${gitver} as: jantman/twilio-ppp-proxy:latest"
