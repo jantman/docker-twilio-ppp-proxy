@@ -2,9 +2,8 @@
 
 set -o errexit
 readonly LOG_FILE="/var/log/twilio-ppp"
-exec 1>$LOG_FILE
+exec 1>>$LOG_FILE
 exec 2>&1
-set -o xtrace
 
 PPP_IFACE="$1"
 PPP_TTY="$2"
