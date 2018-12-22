@@ -25,6 +25,7 @@ docker run -d \
     -e MODEM_DEV=ttyUSB0 \
     --privileged \
     -p 8888:8888 \
+    --restart always \
     jantman/twilio-ppp-proxy
 ```
 
