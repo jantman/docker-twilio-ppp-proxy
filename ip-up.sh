@@ -22,8 +22,5 @@ ip route add default via $PPP_REMOTE dev $PPP_IFACE
 echo "Verifying with: ping -I $PPP_IFACE -c 3 api.twilio.com"
 ping -I $PPP_IFACE -c 3 api.twilio.com
 
-echo "Setting tinyproxy bind address..."
-sed -i "s/#Bind 192.168.0.1/Bind $PPP_LOCAL/" /etc/tinyproxy/tinyproxy.conf
-
 echo "Running tinyproxy..." >> /dev/tty/0
 /etc/init.d/tinyproxy start
