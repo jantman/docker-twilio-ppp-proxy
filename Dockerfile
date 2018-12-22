@@ -4,7 +4,7 @@ ARG git_remote=https://github.com/jantman/docker-twilio-ppp-proxy
 LABEL org.label-schema.schema-version="1.0" \
     org.label-schema.name="twilio-ppp-proxy" \
     org.label-schema.url="https://github.com/jantman/docker-twilio-ppp-proxy" \
-    org.label-schema.vcs-url=$git_remote
+    org.label-schema.vcs-url=$git_remote \
     org.label-schema.vcs-ref=$git_version
 
 # make this explicit
