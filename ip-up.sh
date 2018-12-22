@@ -5,7 +5,7 @@ PPP_SPEED="$3"
 PPP_LOCAL="$4"
 PPP_REMOTE="$5"
 
-echo "ppp ip-up script called for ${PPP_IFACE} (local=${PPP_LOCAL} remote=${PPP_REMOTE} DNS=${DNS1} ${DNS2})" >> /var/log/twilio-ppp
+echo "ppp ip-up script called for ${PPP_IFACE} (DNS1=${DNS1} DNS2=${DNS2} ip-up.sh $1 $2 $3 $4 $5)" >> /var/log/twilio-ppp
 
 echo "removing current nameserver from /etc/resolv.conf" >> /var/log/twilio-ppp
 sed -i '/^nameserver/ d' /etc/resolv.conf
