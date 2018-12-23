@@ -13,7 +13,7 @@ logger -t ip-up-script "ppp ip-up script called for ${PPP_IFACE} (DNS1=${DNS1} D
 logger -t ip-up-script "removing current nameserver from /etc/resolv.conf"
 # workaround for Docker making /etc/resolv.conf "special"...
 cp /etc/resolv.conf /etc/resolv.conf.orig
-grep -v '^nameserver' /etc/resolv.conf.orig > /etc/resolv.conf
+grep '^nameserver' /etc/resolv.conf.orig && grep -v '^nameserver' /etc/resolv.conf.orig > /etc/resolv.conf
 
 logger -t ip-up-script "adding $DNS1 and $DNS2 to /etc/resolv.conf"
 echo -e "nameserver $DNS1\nnameserver $DNS2" >> /etc/resolv.conf
