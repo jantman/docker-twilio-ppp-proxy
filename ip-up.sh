@@ -27,5 +27,10 @@ ip route add default via $PPP_REMOTE dev $PPP_IFACE
 logger -t ip-up-script "Verifying with: ping -I $PPP_IFACE -c 3 api.twilio.com"
 ping -I $PPP_IFACE -c 3 api.twilio.com
 
+if [ ! -z ${PREPROXY_EXEC+x} ]; then
+  echo "Executing PREPROXY_EXEC: ${PREPROXY_EXEC}"
+  bash -c "$PREPROXY_EXEC"
+fi
+
 logger -t ip-up-script "Running tinyproxy..."
 /etc/init.d/tinyproxy start

@@ -35,6 +35,8 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
+If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set.
+
 Test that it's working:
 
 1. Point a browser to https://www.ipify.org/ and find your current WAN IP.
