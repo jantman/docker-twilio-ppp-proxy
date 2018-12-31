@@ -23,7 +23,7 @@ Upon first plugging in your modem, run ``lsusb | grep Huawei``. If you see ``ID 
 
 https://hub.docker.com/r/jantman/twilio-ppp-proxy
 
-Docker hub uploads are currently manual. Each uploaded image is tagged with the short git commit hash that it was built from, and the newest image is also tagged latest.
+Working versions are [tagged in git](https://github.com/jantman/docker-twilio-ppp-proxy/tags), which triggers an [automated build on the Docker Hub](https://cloud.docker.com/repository/docker/jantman/twilio-ppp-proxy/builds). Images will be tagged with both the git tag (version) and "latest".
 
 ```
 docker run -d \
