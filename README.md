@@ -1,6 +1,10 @@
 # docker-twilio-ppp-proxy
 
-Docker container to proxy HTTP via USB PPP modem using Twilio Programmable Wireless.
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![](https://img.shields.io/docker/automated/jantman/twilio-ppp-proxy.svg)](https://cloud.docker.com/u/jantman/repository/docker/jantman/twilio-ppp-proxy)
+
+## What
+
+Docker container to proxy HTTP(S) via USB PPP modem using Twilio Programmable Wireless.
 
 ## Why?
 
@@ -35,7 +39,7 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
-If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set.
+If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set (i.e.: ``PREPROXY_EXEC="ip route add 192.168.0.0/16 via 172.17.0.1 dev eth0"``)
 
 Test that it's working:
 
