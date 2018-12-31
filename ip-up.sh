@@ -10,10 +10,19 @@ PPP_REMOTE="$5"
 
 logger -t ip-up-script "ppp ip-up script called for ${PPP_IFACE} (DNS1=${DNS1} DNS2=${DNS2} ip-up.sh $1 $2 $3 $4 $5)"
 
-logger -t ip-up-script "removing current nameserver from /etc/resolv.conf"
 # workaround for Docker making /etc/resolv.conf "special"...
 cp /etc/resolv.conf /etc/resolv.conf.orig
-grep '^nameserver' /etc/resolv.conf.orig && grep -v '^nameserver' /etc/resolv.conf.orig > /etc/resolv.conf
+
+# remove nameserver only if present
+if grep '^nameserver' /etc/resolv.conf.orig; then
+  if grep -v '^nameserver' /etc/resolv.conf.orig; then
+    logger -t ip-up-script "removing current nameserver from /etc/resolv.conf"
+    grep -v '^nameserver' /etc/resolv.conf.orig > /etc/resolv.conf
+  else
+    logger -t ip-up-script "truncating /etc/resolv.conf"
+    truncate -s 0 /etc/resolv.conf
+  fi
+fi
 
 logger -t ip-up-script "adding $DNS1 and $DNS2 to /etc/resolv.conf"
 echo -e "nameserver $DNS1\nnameserver $DNS2" >> /etc/resolv.conf
