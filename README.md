@@ -1,6 +1,6 @@
 # docker-twilio-ppp-proxy
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![](https://img.shields.io/docker/automated/jantman/twilio-ppp-proxy.svg)](https://cloud.docker.com/u/jantman/repository/docker/jantman/twilio-ppp-proxy)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![](https://img.shields.io/docker/automated/jantman/twilio-ppp-proxy.svg)](https://hub.docker.com/r/jantman/twilio-ppp-proxy)
 
 ## What
 
