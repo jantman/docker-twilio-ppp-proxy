@@ -39,7 +39,7 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
-If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set (i.e.: ``PREPROXY_EXEC="ip route add 192.168.0.0/16 via 172.17.0.1 dev eth0"``)
+If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set. An example of this is if you want to allow access from other machines on the same LAN as the docker host; with a 192.168.0.0/16 LAN and a Docker host of 172.17.0.1, you could set ``PREPROXY_EXEC="ip route add 192.168.0.0/16 via 172.17.0.1 dev eth0"``.
 
 Test that it's working:
 
