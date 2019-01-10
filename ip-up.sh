@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -o errexit
+[ -z ${DEBUG+x} ] && set -o xtrace
 
 PPP_IFACE="$1"
 PPP_TTY="$2"
@@ -34,7 +35,12 @@ logger -t ip-up-script "Adding new default route via $PPP_REMOTE dev $PPP_IFACE"
 ip route add default via $PPP_REMOTE dev $PPP_IFACE
 
 logger -t ip-up-script "Verifying with: ping -I $PPP_IFACE -c 3 api.twilio.com"
-ping -I $PPP_IFACE -c 3 api.twilio.com
+if ping -I $PPP_IFACE -c 5 api.twilio.com; then
+  logger -t ip-up-script "ping succeeded; connectivity confirmed"
+else
+  logger -t ip-up-script "ping failed all attempts; killing container (PID 1)"
+  kill 1
+fi
 
 if [ ! -z ${PREPROXY_EXEC+x} ]; then
   echo "Executing PREPROXY_EXEC: ${PREPROXY_EXEC}"

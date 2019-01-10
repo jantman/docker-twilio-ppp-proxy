@@ -49,6 +49,12 @@ Test that it's working:
 4. ``http_proxy=http://127.0.0.1:8888/ https_proxy=http://127.0.0.1:8888/ curl -L https://api.ipify.org/?format=json`` should show a different IP, the cellular gateway (not necessarily your PPP client IP)
 5. ``http_proxy=http://127.0.0.1:8888/ https_proxy=http://127.0.0.1:8888/ curl http://httpbin.org/ip`` should show a different IP, the cellular gateway (not necessarily your PPP client IP)
 
+## Troubleshooting
+
+Try restarting the container, unplugging and re-plugging the USB modem, or issuing a network reset from Twilio's site.
+
+Setting a ``DEBUG`` environment variable for the container will enable both trace output in the bash scripts as well as passing the "debug" and "dump" options to ``pon`` (and on to pppd).
+
 ## ToDo
 
 * Try to make this a bit smaller and more efficient. Right now, this image is just using a giant hammer to get things working as quickly as possible.
