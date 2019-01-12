@@ -39,7 +39,8 @@ docker run -d \
     jantman/twilio-ppp-proxy
 ```
 
-If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set. An example of this is if you want to allow access from other machines on the same LAN as the docker host; with a 192.168.0.0/16 LAN and a Docker host of 172.17.0.1, you could set ``PREPROXY_EXEC="ip route add 192.168.0.0/16 via 172.17.0.1 dev eth0"``.
+* If you'd like to execute a command before starting up tinyproxy in the container, the content of the ``PREPROXY_EXEC`` environment variable will be passed to ``bash -c`` if set. An example of this is if you want to allow access from other machines on the same LAN as the docker host; with a 192.168.0.0/16 LAN and a Docker host of 172.17.0.1, you could set ``PREPROXY_EXEC="ip route add 192.168.0.0/16 via 172.17.0.1 dev eth0"``.
+* By default, the container runs a healthcheck using curl against http://api.ipify.org/ every 15 minutes, starting 5 minutes after container start, with a 1-minute timeout. This should be a suitable default, but these values can be overridden in the ``docker run`` command using the ``--health-interval``, ``--health-start-period``, and ``--health-timeout`` options, respectively, or disabled with the ``--no-healthcheck`` option.
 
 Test that it's working:
 
