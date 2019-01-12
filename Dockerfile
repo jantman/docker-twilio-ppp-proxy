@@ -42,4 +42,4 @@ EXPOSE 8888
 ENTRYPOINT ["/tini", "--", "/entrypoint.sh"]
 
 HEALTHCHECK --interval=15m --timeout=1m --start-period=5m \
-  CMD /usr/bin/curl -f --proxy http://127.0.0.1:8888 https://api.ipify.org/ || exit 1
+  CMD /usr/bin/curl -f --proxy http://127.0.0.1:8888 http://api.ipify.org/ || exit 1
