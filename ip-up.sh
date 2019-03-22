@@ -35,10 +35,14 @@ logger -t ip-up-script "Adding new default route via $PPP_REMOTE dev $PPP_IFACE"
 ip route add default via $PPP_REMOTE dev $PPP_IFACE
 
 logger -t ip-up-script "Verifying with: ping -I $PPP_IFACE -c 5 api.twilio.com"
-if ping -I $PPP_IFACE -c 5 api.twilio.com; then
+if ping -I $PPP_IFACE -c 5 api.twilio.com &>/tmp/ping.out; then
+  logger -t ip-up-script -f /tmp/ping.out
   logger -t ip-up-script "ping succeeded; connectivity confirmed"
 else
+  logger -t ip-up-script -f /tmp/ping.out
   logger -t ip-up-script "ping failed all attempts; killing container (PID 1)"
+  # sleep 5 seconds to ensure logging flushes
+  sleep 5
   kill 1
 fi
 
