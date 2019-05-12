@@ -17,5 +17,8 @@ else
   pon twilio
 fi
 
+echo "Executing /exit_when_ppp_dead.sh & ..."
+/exit_when_ppp_dead.sh &
+
 echo "Executing: tail -f /var/log/messages"
 tail -f /var/log/messages

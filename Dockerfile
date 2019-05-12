@@ -31,10 +31,12 @@ COPY ip-up.sh /etc/ppp/ip-up.d/9999proxy
 COPY ip-down.sh /etc/ppp/ip-down.d/9999proxy
 COPY tinyproxy.conf /etc/tinyproxy/tinyproxy.conf
 COPY rsyslog.conf /etc/rsyslog.conf
+COPY exit_when_ppp_dead.sh /exit_when_ppp_dead.sh
 
 RUN chmod +x \
     /tini \
     /entrypoint.sh \
+    /exit_when_ppp_dead.sh \
     /etc/ppp/ip-up.d/9999proxy \
     /etc/ppp/ip-down.d/9999proxy
 
